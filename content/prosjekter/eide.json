@@ -1,0 +1,10 @@
+{
+  "name": "Eide",
+  "url": "https://efb.no",
+  "description": "Set standarden for framtidas havbruk",
+  "deliverable": "Nettside og oppdatert visuell identitet for Eide",
+  "thumbnail": "/projects/eide.png",
+  "status": "For Eide",
+  "image": "/projects/eide.svg",
+  "opensource": true
+}

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+    --ui-container: 42rem;
+}
+
+/*.dark {
+    --ui-bg: var(--ui-color-neutral-50);
+}*/
+
+@font-face {
+    font-family: "Departure mono";
+    src: url("/fonts/DepartureMono-Regular.otf") format("opentype");
+}
+
+@theme {
+    --font-mono: "Departure mono", monospace;
+    --font-sans: "Inter", sans-serif;
+    --font-serif: "Libre Baskerville", serif;
+}
+
+.markdown {
+    h1 {
+        font-size: var(--text-xl);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+}

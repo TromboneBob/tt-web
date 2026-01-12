@@ -1,0 +1,11 @@
+{
+  "name": "Restaurant Iris",
+  "url": "https://restaurantiris.no",
+  "deliverable": "Nettside og visuell identitet for Restaurant Iris",
+  "description": "Michelinrestaurant i Hardangerfjorden",
+  "bg": "#000",
+  "thumbnail": "/projects/iris.png",
+  "status": "For Eide",
+  "opensource": true,
+  "image": "/projects/iris.svg"
+}
