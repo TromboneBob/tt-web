@@ -8,6 +8,15 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  routeRules: {
+    '/foto-sessions/**': { 'prerender': true },
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/']
+    }
+  },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
