@@ -1,11 +1,11 @@
 <template>
-    <NuxtLink :to="session.path" class="mb-0" @mouseenter="prefetchGalleryImages(session.id)">
+    <NuxtLink :to="session.path" class="mb-0" @mouseenter="prefetchGalleryImages(session.path)">
         <div class="flex flex-col items-center w-full">
             <NuxtImg :src="session.thumbnail" alt="Thumbnail" class="rounded-lg aspect-square object-cover w-full"
                 quality="50" width="600" />
             <div class="flex flex-row justify-between items-center w-full mt-2">
                 <div class="mt-1">
-                    <h2 class="font-bold">{{ session.title }}</h2>
+                    <h2 class="font-bold">{{ session.name }}</h2>
                     <h2 class="text-sm text-muted">{{ session.location }}</h2>
                 </div>
                 <div class="flex flex-col gap-1 items-end">
@@ -30,19 +30,6 @@ const props = defineProps({
     },
 });
 
-const occasionColor = computed(() => {
-    switch (session.occasion) {
-        case 'wedding':
-            return 'green';
-        case 'birthday':
-            return 'blue';
-        case 'anniversary':
-            return 'yellow';
-        default:
-            return 'gray';
-    }
-});
-
 const timeOfYearColor = computed(() => {
     switch (props.session.timeOfYear) {
         case 'Vinter':
@@ -58,5 +45,3 @@ const timeOfYearColor = computed(() => {
     }
 });
 </script>
-
-<style scoped></style>
