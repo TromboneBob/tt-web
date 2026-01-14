@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="session.path" class="mb-0">
+    <NuxtLink :to="session.path" class="mb-0" @mouseenter="prefetchGalleryImages(session.path)">
         <div class="flex flex-col items-center w-full">
             <NuxtImg :src="session.thumbnail" alt="Thumbnail" class="rounded-lg aspect-square object-cover w-full"
                 quality="50" width="600" />
