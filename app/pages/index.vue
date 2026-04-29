@@ -20,14 +20,14 @@
                 gjør en reell forskjell. Her finner du noen av mine prosjekter
                 og tanker rundt kreativt arbeid.
             </p>
-            <p class="text-gray-900 dark:text-gray-400">
+            <!-- <p class="text-gray-900 dark:text-gray-400">
                 Til daglig jobber jeg på
                 <NuxtLink to="https://www.salmoneye.no"
                     class="underline hover:text-primary transition-colors font-mono tracking-tighter">Salmon
                     Eye &nearrow;</NuxtLink>, der jeg får holde på
                 med alt fra innholdsproduksjon til
                 systemutvikling.
-            </p>
+            </p> -->
         </div>
 
         <div class="my-24" />
@@ -49,11 +49,17 @@
         <ProjectsList />
     </div>
 </template>
-as
+
 
 <script setup>
+const description = "Tobias Torjusen er fotograf, webutvikler og kreativ historieforteller i Rosendal. Se fotoarbeid, webprosjekter og kreative prosjekter.";
+
 useSeoMeta({
-    title: "Hjem",
-    description: "",
+    title: "Fotograf, webutvikler og kreativ sjel",
+    description,
+    ogTitle: "Tobias Torjusen",
+    ogDescription: description,
+    ogImage: "/TLT_1813.jpg",
+    twitterCard: "summary_large_image",
 });
 </script>

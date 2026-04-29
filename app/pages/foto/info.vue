@@ -115,9 +115,15 @@
 </template>
 
 <script setup>
+const description = "Informasjon om fotografering med Tobias Torjusen i Rosendal og Kvinnherad. Priser og opplegg for bryllup, familie, portrett og bedriftsfoto.";
+
 useSeoMeta({
     title: "Info %separator Foto",
-    description: "Fotograf basert i Rosendal, Kvinnherad. Bryllup, familie, konfirmant og nyfødt, med fokus på å fange de små øyeblikkene.",
+    description,
+    ogTitle: "Fotografering",
+    ogDescription: description,
+    ogImage: "/foto-sessions/thumbnails/mb.jpg",
+    twitterCard: "summary_large_image",
 });
 
 const { fotos } = useFotoCollection()

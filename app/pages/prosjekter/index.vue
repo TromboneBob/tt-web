@@ -20,8 +20,14 @@
 </template>
 
 <script setup>
+const description = "Utvalgte webprosjekter, nettsider og visuelle identiteter laget av Tobias Torjusen for bedrifter og organisasjoner.";
+
 useSeoMeta({
     title: "Prosjekter",
-    description: "Designer og webutvikler. Jeg skaper moderne, responsive løsninger for små og mellomstore bedrifter. Rask prosess, fleksibel tilnærming, profesjonelle resultat.",
+    description,
+    ogTitle: "Prosjekter",
+    ogDescription: description,
+    ogImage: "/projects/iris.png",
+    twitterCard: "summary_large_image",
 });
 </script>

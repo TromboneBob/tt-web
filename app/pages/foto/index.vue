@@ -33,8 +33,14 @@
 </template>
 
 <script setup>
+const description = "Fotograf basert i Rosendal, Kvinnherad. Bryllup, familie, konfirmant, nyfødt og bedriftsfoto med fokus på ekte øyeblikk.";
+
 useSeoMeta({
     title: "Foto",
-    description: "Fotograf basert i Rosendal, Kvinnherad. Bryllup, familie, konfirmant og nyfødt, med fokus på å fange de små øyeblikkene.",
+    description,
+    ogTitle: "Foto",
+    ogDescription: description,
+    ogImage: "/foto-sessions/thumbnails/iris.jpg",
+    twitterCard: "summary_large_image",
 });
 </script>

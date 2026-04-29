@@ -10,9 +10,17 @@
 </template>
 
 <script setup lang="ts">
+const description = "Bildegalleri med Bobbi, en ivrig fotomodell og posør foran kamera.";
+
 useSeoMeta({
     title: 'Bobbi',
+    description,
+    ogTitle: "Bobbi",
+    ogDescription: description,
+    ogImage: "/bobbi/img1.jpg",
+    twitterCard: "summary_large_image",
 });
+
 const images = [
     { src: "/bobbi/img1.jpg" },
     { src: "/bobbi/img2.jpg" },

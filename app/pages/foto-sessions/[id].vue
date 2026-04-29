@@ -4,6 +4,23 @@ const route = useRoute();
 // Use queryCollection directly instead of useAsyncData
 // This works both during prerendering AND client-side hydration
 const page = await queryCollection("fotoSessions").path(route.path).first();
+const withLeadingSlash = (path?: null | string) => path ? (path.startsWith("/") ? path : `/${path}`) : undefined;
+const pageTitle = page?.name ? `${page.name} %separator Foto` : "Bildegalleri ikke funnet";
+const pageDescription = [
+    page?.description,
+    page?.location ? `Fotografert på ${page.location}.` : undefined,
+].filter(Boolean).join(" ") || "Bildegalleri fra Tobias Torjusen.";
+const pageImage = withLeadingSlash(page?.thumbnail) ?? "/foto-sessions/thumbnails/iris.jpg";
+
+useSeoMeta({
+    title: pageTitle,
+    description: pageDescription,
+    ogTitle: page?.name ?? "Bildegalleri",
+    ogDescription: pageDescription,
+    ogImage: pageImage,
+    twitterCard: "summary_large_image",
+    robots: page ? "index, follow" : "noindex, nofollow",
+});
 
 const photos = computed(() =>
     page?.images?.map(img => ({

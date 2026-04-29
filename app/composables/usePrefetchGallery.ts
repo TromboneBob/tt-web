@@ -46,11 +46,11 @@ export const usePrefetchGallery = () => {
     // Remove leading slash and use as folder name
     const folderName = sessionPath.replace(/^\//, '')
 
-    imageMetadata.images.forEach((img) => {
+    imageMetadata.images.forEach((img, index) => {
       const imageUrl = `/${folderName}/${img.filename}`
 
       const link = document.createElement('link')
-      link.rel = 'prefetch'
+      link.rel = index < 3 ? 'preload' : 'prefetch'
       link.as = 'image'
       link.href = imageUrl
       document.head.appendChild(link)
