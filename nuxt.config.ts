@@ -14,7 +14,8 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/foto/bryllup-skjema']
+      routes: ['/', '/foto/bryllup/skjema'],
+      ignore: ['/__og-image__/**']
     }
   },
   app: {
