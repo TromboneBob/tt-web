@@ -4,7 +4,7 @@
             <NavigationBar />
         </ClientOnly>
         <UMain>
-            <NuxtLayout :name="layout">
+            <NuxtLayout>
                 <NuxtPage />
             </NuxtLayout>
         </UMain>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-const layout = "standard";
+
 await preloadComponents('NavigationBar', 'ClientOnly')
 defineOgImageComponent('TestOg', {
     title: 'Tobias Torjusen',

@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/']
+      routes: ['/', '/foto/bryllup-skjema']
     }
   },
   app: {
@@ -94,14 +94,7 @@ export default defineNuxtConfig({
     name: 'Tobias Torjusen',
     description: 'Personal website of Tobias Torjusen',
   },
-  modules: [
-    "@nuxt/ui",
-    "@nuxt/content",
-    "@nuxt/eslint",
-    "@nuxt/image",
-    // "@nuxt/hints",
-    // "nuxt-studio",
-    "@nuxtjs/device",
-    "@nuxtjs/seo",
-  ],
+  modules: ["@nuxt/ui", "@nuxt/content", "@nuxt/eslint", "@nuxt/image", // "@nuxt/hints",
+  // "nuxt-studio",
+  "@nuxtjs/device", "@nuxtjs/seo", "@vueuse/nuxt"],
 });

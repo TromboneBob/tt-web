@@ -1,9 +1,16 @@
 <script setup lang="ts">
-const route = useRoute();
+definePageMeta({
+    layout: 'standard',
+});
 
-// Use queryCollection directly instead of useAsyncData
-// This works both during prerendering AND client-side hydration
-const page = await queryCollection("fotoSessions").path(route.path).first();
+const route = useRoute();
+const { sessionsData } = usePrefetchGallery();
+
+// On client navigation the session is already in the prefetched cache, so we can
+// render instantly without re-querying the content DB. On the server (cache empty
+// during prerender/initial load) we fall back to a direct query.
+const cached = sessionsData.value.get(route.path);
+const page = cached ?? (await queryCollection("fotoSessions").path(route.path).first());
 const withLeadingSlash = (path?: null | string) => path ? (path.startsWith("/") ? path : `/${path}`) : undefined;
 const pageTitle = page?.name ? `${page.name} %separator Foto` : "Bildegalleri ikke funnet";
 const pageDescription = [
@@ -29,9 +36,12 @@ const photos = computed(() =>
     })) ?? []
 )
 
-const surround = await queryCollectionItemSurroundings("fotoSessions", `/foto-sessions/${route.params.id}`, {
-    fields: ["description"],
-});
+// Lazy so it never blocks the page transition — it renders below the gallery.
+const { data: surround } = useLazyAsyncData(`surround-${route.path}`, () =>
+    queryCollectionItemSurroundings("fotoSessions", `/foto-sessions/${route.params.id}`, {
+        fields: ["description"],
+    }),
+);
 </script>
 
 <template>
@@ -39,7 +49,7 @@ const surround = await queryCollectionItemSurroundings("fotoSessions", `/foto-se
         <UButton to="/foto" label="Alle bilder" icon="i-solar:arrow-left-linear" variant="link" color="neutral" />
         <ContentRenderer :value="page" class="markdown mt-8" />
         <FotoGallery :photos="photos" />
-        <UContentSurround :surround="surround" class="mt-8" />
+        <UContentSurround v-if="surround" :surround="surround" class="mt-8" />
     </div>
     <div v-else>
         <p>Foto session not found</p>

@@ -16,16 +16,16 @@
             <UPageCard title="Vil du bevare øyeblikkene dine?"
                 description="Jeg vil veldig gjerne hjelpe deg å bevare historiene dine. Les mer om hvordan vi kan jobbe sammen her."
                 icon="i-solar:camera-outline" to="/foto/info" variant="subtle" />
-            <p class="text-gray-900 dark:text-gray-400">
+            <!-- <p class="text-gray-900 dark:text-gray-400">
                 Jeg har også de siste årene vært så heldig å få ta bilder til
                 <NuxtLink to="https://www.restaurantiris.no" target="_blank" class="underline">Iris</NuxtLink>. Sammen
                 med Chef Anika og teamet på Iris har jeg fått jobbe
-                fritt kreativt i å formidle historiene restaruanten ønsker å
+                fritt kreativt i å formidle historiene restauranten ønsker å
                 fortelle.
-                <!-- <NuxtLink to="/foto/case-studies" class="underline">Her</NuxtLink>
+                 <NuxtLink to="/foto/case-studies" class="underline">Her</NuxtLink>
                 forteller jeg litt om noen av favorittene mine, og hvordan de er
-                tatt. -->
-            </p>
+                tatt.
+            </p> -->
         </div>
         <div class="h-16" />
         <FotoSessionList />
@@ -33,6 +33,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+    layout: 'standard',
+});
+
 const description = "Fotograf basert i Rosendal, Kvinnherad. Bryllup, familie, konfirmant, nyfødt og bedriftsfoto med fokus på ekte øyeblikk.";
 
 useSeoMeta({

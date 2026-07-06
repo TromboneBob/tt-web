@@ -10,6 +10,11 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+    layout: 'standard',
+});
+
+
 const description = "Bildegalleri med Bobbi, en ivrig fotomodell og posør foran kamera.";
 
 useSeoMeta({

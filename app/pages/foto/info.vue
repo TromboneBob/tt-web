@@ -51,7 +51,7 @@
                                     <div class="grow border-t border-t-gray-300" />
                                     <UBadge variant="subtle">{{
                                         item.date
-                                    }}</UBadge>
+                                        }}</UBadge>
                                 </div>
                             </div>
                             <div class="text-pretty text-muted">
@@ -64,7 +64,7 @@
                         <p>
                             Begge pakkene inkluderer etterarbeid og et komplett
                             digitalt galleri, uten begrensninger på antall
-                            bilder.
+                            bilder. Dere står fritt til å laste ned og dele så mange bilder dere vil.
                         </p>
                         <div>
                             <h3 class="font-bold">Prøvefotografering</h3>
@@ -76,7 +76,7 @@
                                 midtpunkt en hel dag, og da kan det være greit å
                                 ha fått senket skuldrene litt på forhånd.
                             </p>
-
+                            <UPricingPlans :plans="testPlan" class="gap-2 mt-8" />
                         </div>
                     </div>
                 </template>
@@ -115,6 +115,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+    layout: 'standard',
+});
+
 const description = "Informasjon om fotografering med Tobias Torjusen i Rosendal og Kvinnherad. Priser og opplegg for bryllup, familie, portrett og bedriftsfoto.";
 
 useSeoMeta({
@@ -170,19 +174,18 @@ const weddingPlans = ref([
     {
         title: "Halvdag",
         description:
-            "Perfekt for dere som ønsker fotografering av vielse, portretter og noen fine øyeblikk rundt. Varighet ca. 5 timer. Fleksibelt opplegg før eller etter vielsen.",
+            "Perfekt for dere som ønsker fotografering av vielse, portretter og noen fine øyeblikk rundt. Varighet ca. 4 timer. Fleksibelt opplegg før eller etter vielsen.",
         price: "fra kr 15 000,-",
         features: [
             "Portretter på ønsket lokasjon",
             "Vielse",
-            "Familiebilder",
-            "Mottakelse eller forberedelser",
-            "Bilder i online galleri",
-            "Maks 5 timer",
+            "De første timene av feiringen",
+            "Bilder i privat galleri",
+            "Varighet ca. 4 timer",
         ],
 
         ui: {
-            root: "p-4 lg:p-6 gap-4",
+            root: "p-4 xl:p-8 lg:p-6 gap-4",
             title: "sm:text-xl",
             price: "text-xl sm:text-xl",
         },
@@ -191,21 +194,41 @@ const weddingPlans = ref([
         title: "Heldag",
         description:
             "For dere som ønsker at hele historien skal med: forberedelser, vielse, portretter, middag, dans og fest. Inntil 12 timer",
-        price: "fra kr 21 000,-",
+        price: "fra kr 24 000,-",
         features: [
             "Alt i halvdag",
             "Forberedelser",
             "Middag",
             "Dans",
-            "Maks 12 timer",
+            "Varighet ca. 12 timer",
         ],
 
         ui: {
-            root: "p-4 lg:p-6 gap-4",
+            root: "p-4 xl:p-8 lg:p-6 gap-4",
             title: "sm:text-xl",
             price: "text-xl sm:text-xl",
         },
     },
+]);
+
+const testPlan = ref([
+    {
+        title: "Prøvefotografering",
+        description:
+            "Tillegg til begge bryllupspakker. Passer perfekt for dere som ønsker flotte bilder uten presset rundt bryllupsdagen. En god anledning for oss til å bli kjent, og for dere til å senke skuldrene litt.",
+        price: "kr 4000,-",
+        features: [
+            "Portretter på ønsket lokasjon",
+            "Varighet ca. 1 time",
+        ],
+
+        ui: {
+            root: "p-4 xl:p-8 lg:p-6 gap-4",
+            title: "sm:text-xl",
+            price: "text-xl sm:text-xl",
+        },
+    },
+
 ]);
 
 const portraitPlans = ref([
@@ -217,7 +240,7 @@ const portraitPlans = ref([
         features: [
             "Fotografering på ønsket lokasjon",
             "Bilder i online galleri",
-            "ca 1 time (men ingen hastverk)",
+            "fra 45 min",
         ],
 
         ui: {
@@ -230,6 +253,20 @@ const portraitPlans = ref([
 ]);
 
 const portraitFAQ = ref([
+
+    {
+        label: 'Hva bør vi ha på oss?',
+        icon: 'i-solar:t-shirt-outline',
+        content: 'Tenk naturlige og myke farger. Unngå store logoer, skarpe farger eller masete mønster. Det er ofte lurt å velge klær som går godt sammen, men prøv også å unngå at alle stiller i "uniform". Om dere er usikre på om det dere har valgt ut fungerer kan dere sende meg et bilde, så hjelper jeg gjerne med forslag og idéer.'
+    },
+    {
+        label: 'Når får jeg bildene?',
+        icon: 'solar:clock-circle-outline',
+        content: 'Det tar vanligvis 3-4 uker å ferdigstille bildene. Har du hastverk med å få dem kan du gi beskjed ved booking, så kan vi prøve å finne en løsning.'
+    }
+])
+
+const weddingFAQ = ref([
 
     {
         label: 'Hva bør vi ha på oss?',

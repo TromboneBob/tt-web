@@ -20,6 +20,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+    layout: 'standard',
+});
+
 const description = "Utvalgte webprosjekter, nettsider og visuelle identiteter laget av Tobias Torjusen for bedrifter og organisasjoner.";
 
 useSeoMeta({

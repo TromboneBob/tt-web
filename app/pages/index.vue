@@ -52,6 +52,10 @@
 
 
 <script setup>
+definePageMeta({
+    layout: 'standard',
+});
+
 const description = "Tobias Torjusen er fotograf, webutvikler og kreativ historieforteller i Rosendal. Se fotoarbeid, webprosjekter og kreative prosjekter.";
 
 useSeoMeta({

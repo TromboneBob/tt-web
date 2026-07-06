@@ -1,3 +1,9 @@
+// Must match the <NuxtImg> usage in FotoGallery.vue so the browser reuses the
+// prefetched response instead of downloading a second, differently-sized image.
+const GALLERY_SIZES = '(max-width: 768px) 100vw, 620px'
+// Only warm the first few above-the-fold images; the rest load lazily on scroll.
+const PREFETCH_COUNT = 3
+
 export const usePrefetchGallery = () => {
   const prefetchedSessions = useState<Set<string>>('prefetchedSessions',
     () => new Set<string>()
@@ -21,8 +27,6 @@ export const usePrefetchGallery = () => {
         const sessionId = session.path
         sessionsData.value.set(sessionId, session)
       })
-
-      console.log(`✅ Loaded ${allSessions.length} sessions`)
     } catch (error) {
       console.error('Error loading sessions:', error)
     } finally {
@@ -31,10 +35,7 @@ export const usePrefetchGallery = () => {
   }
 
   const prefetchGalleryImages = (sessionPath: string) => {
-    if (prefetchedSessions.value.has(sessionPath)) {
-      console.log(`⏭️ Already prefetched ${sessionPath}`)
-      return
-    }
+    if (prefetchedSessions.value.has(sessionPath)) return
 
     const imageMetadata = sessionsData.value.get(sessionPath)
     if (!imageMetadata?.images) {
@@ -42,26 +43,34 @@ export const usePrefetchGallery = () => {
       return
     }
 
-    // Construct path: sessionPath is "/foto-sessions/martha-benjamin"
-    // Remove leading slash and use as folder name
+    // sessionPath is "/foto-sessions/martha-benjamin"; drop the leading slash
+    // to reuse it as the public folder name.
     const folderName = sessionPath.replace(/^\//, '')
+    const img = useImage()
 
-    imageMetadata.images.forEach((img, index) => {
-      const imageUrl = `/${folderName}/${img.filename}`
+    imageMetadata.images.slice(0, PREFETCH_COUNT).forEach((image: { filename: string }) => {
+      const src = `/${folderName}/${image.filename}`
+      // Generate the exact srcset NuxtImg will request (same src + sizes, default
+      // modifiers) so the preload actually matches and isn't downloaded twice.
+      const { srcset, sizes } = img.getSizes(src, { sizes: GALLERY_SIZES })
 
       const link = document.createElement('link')
-      link.rel = index < 3 ? 'preload' : 'prefetch'
+      link.rel = 'preload'
       link.as = 'image'
-      link.href = imageUrl
+      link.setAttribute('imagesrcset', srcset)
+      link.setAttribute('imagesizes', sizes)
+      // Low priority so prefetching the next gallery never competes with the
+      // current page's own requests.
+      link.fetchPriority = 'low'
       document.head.appendChild(link)
     })
 
     prefetchedSessions.value.add(sessionPath)
-    console.log(`✅ Prefetched ${imageMetadata.images.length} images for ${sessionPath}`)
   }
 
   return {
     initializeSessions,
-    prefetchGalleryImages
+    prefetchGalleryImages,
+    sessionsData
   }
 }

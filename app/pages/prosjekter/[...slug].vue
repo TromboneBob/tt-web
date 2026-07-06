@@ -1,24 +1,35 @@
 <template>
-    <div></div>
+
+    <div class="h-dvh">
+        Main content
+    </div>
+
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
-const project = await queryCollection("prosjekter").path(route.path).first();
+definePageMeta({
+    layout: 'projects',
+});
 
-const projectContent = project?.body;
-const projectTitle = projectContent?.name ?? "Prosjekt ikke funnet";
-const projectDescription = projectContent?.deliverable ?? projectContent?.description ?? "Prosjekt fra Tobias Torjusen.";
-const projectImage = projectContent?.thumbnail ?? projectContent?.image ?? "/projects/iris.png";
+const route = useRoute();
+
+const { data: project } = await useAsyncData(
+    () => `prosjekt-${route.path}`,
+    () => queryCollection("prosjekter").path(route.path).first()
+);
+
+const projectTitle = computed(() => project.value?.name ?? "Prosjekt ikke funnet");
+const projectDescription = computed(() => project.value?.deliverable ?? project.value?.description ?? "Prosjekt fra Tobias Torjusen.");
+const projectImage = computed(() => project.value?.thumbnail ?? project.value?.image ?? "/projects/iris.png");
 
 useSeoMeta({
-    title: project ? `${projectTitle} %separator Prosjekter` : projectTitle,
+    title: () => project.value ? `${projectTitle.value} %separator Prosjekter` : projectTitle.value,
     description: projectDescription,
     ogTitle: projectTitle,
     ogDescription: projectDescription,
     ogImage: projectImage,
     twitterCard: "summary_large_image",
-    robots: project ? "index, follow" : "noindex, nofollow",
+    robots: () => project.value ? "index, follow" : "noindex, nofollow",
 });
 </script>
 
