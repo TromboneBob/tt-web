@@ -1,11 +1,13 @@
 <template>
     <div class="flex flex-col gap-4">
-        <div v-for="(project, id) of projects" :key="id"
+        <div
+v-for="(project, id) of projects" :key="id"
             class="border border-default p-2 rounded-xl shadow-xs relative">
             <ULink :to="project.url" :label="project.url" external target="_blank" class="relative z-10">
                 <div>
                     <!-- <NuxtImg :src="project.image" class="rounded-lg aspect-3/2 object-cover" /> -->
-                    <NuxtImg :src="project.image"
+                    <NuxtImg
+:src="project.image"
                         class="rounded-lg aspect-3/2 object-cover border border-default shadow-xs" />
                 </div>
                 <div class="flex md:flex-row flex-col justify-between md:items-center p-1 mt-1">

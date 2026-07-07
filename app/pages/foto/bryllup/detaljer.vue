@@ -79,7 +79,8 @@
         <div class="space-y-4">
             <p class="text-sm text-muted">Fortsatt spørsmål? Ta gjerne kontakt.</p>
             <div class="flex flex-wrap gap-3">
-                <UButton to="mailto:tobiastorjusen@icloud.com" icon="i-solar:letter-outline" variant="outline"
+                <UButton
+to="mailto:tobiastorjusen@icloud.com" icon="i-solar:letter-outline" variant="outline"
                     color="neutral">
                     Send e-post
                 </UButton>

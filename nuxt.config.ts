@@ -4,30 +4,28 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
   routeRules: {
-    '/foto-sessions/**': { 'prerender': true },
+    "/foto-sessions/**": { prerender: true },
   },
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/foto/bryllup/skjema'],
-      ignore: ['/__og-image__/**']
-    }
+      routes: ["/", "/foto/bryllup/skjema"],
+      ignore: ["/__og-image__/**"],
+    },
   },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
-      title: 'Tobias Torjusen',
+      title: "Tobias Torjusen",
       htmlAttrs: {
         lang: "no",
         class: "h-full",
       },
       templateParams: {
-        separator: '·',
+        separator: "·",
       },
       bodyAttrs: {
         class: "antialiased bg-gray-50 dark:bg-black min-h-screen",
@@ -35,14 +33,14 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    format: ['webp', 'jpg', 'avif'],
+    format: ["webp", "jpg", "avif"],
     quality: 80,
     presets: {
       default: {
         modifiers: {
           quality: 80,
-          format: 'webp'
-        }
+          format: "webp",
+        },
       },
       listThumb: {
         modifiers: {
@@ -80,22 +78,46 @@ export default defineNuxtConfig({
   css: ["./app/assets/main.css"],
   fonts: {
     provider: "bunny",
-  },
-  ogImage: {
-    fonts: [
-      'Inter:400',
-      'Inter:700',
-      { name: 'Departure mono', weight: 400, path: '/fonts/DepartureMono-Regular.otf' },
-      { name: 'Libre Baskerville', weight: 400, style: 'normal', path: '/fonts/LibreBaskerville-Regular.ttf' },
-      { name: 'Libre Baskerville', weight: 400, style: 'italic', path: '/fonts/LibreBaskerville-Italic.ttf' },
+    families: [
+      {
+        name: "Inter",
+        weight: [400, 700],
+        global: true,
+      },
+      {
+        name: "Departure mono",
+        weight: 400,
+        src: "/fonts/DepartureMono-Regular.woff2",
+        global: true,
+      },
+      {
+        name: "Libre Baskerville",
+        weight: 400,
+        style: "normal",
+        global: true,
+      },
+      {
+        name: "Libre Baskerville",
+        weight: 400,
+        style: "italic",
+        global: true,
+      },
     ],
   },
+  ogImage: {},
   site: {
-    url: 'https://tobiastorjusen.no',
-    name: 'Tobias Torjusen',
-    description: 'Personal website of Tobias Torjusen',
+    url: "https://tobiastorjusen.no",
+    name: "Tobias Torjusen",
+    description: "Personal website of Tobias Torjusen",
   },
-  modules: ["@nuxt/ui", "@nuxt/content", "@nuxt/eslint", "@nuxt/image", // "@nuxt/hints",
-  // "nuxt-studio",
-  "@nuxtjs/device", "@nuxtjs/seo", "@vueuse/nuxt"],
+  modules: [
+    "@nuxt/ui",
+    "@nuxt/content",
+    "@nuxt/eslint",
+    "@nuxt/image", // "@nuxt/hints",
+    // "nuxt-studio",
+    "@nuxtjs/device",
+    "@nuxtjs/seo",
+    "@vueuse/nuxt",
+  ],
 });

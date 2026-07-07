@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: "Departure mono";
-    src: url("/fonts/DepartureMono-Regular.otf") format("opentype");
+    src: url("/fonts/DepartureMono-Regular.woff2") format("woff2");
 }
 
 @theme {

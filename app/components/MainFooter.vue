@@ -10,12 +10,12 @@
             </div>
             <Teleport to="body">
                 <Transition name="tooltip">
-                    <div v-if="showTooltip" :style="{ left: tooltipX + 'px', top: tooltipY + 'px' }"
+                    <div
+v-if="showTooltip" :style="{ left: tooltipX + 'px', top: tooltipY + 'px' }"
                         class="fixed px-3 py-1 bg-white text-primary-700 text-sm rounded shadow-lg whitespace-nowrap pointer-events-none z-50 font-mono">
                         Kopiert!
                         <div
-                            class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white">
-                        </div>
+                            class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"/>
                     </div>
                 </Transition>
             </Teleport>

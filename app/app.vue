@@ -14,15 +14,12 @@
 </template>
 
 <script setup lang="ts">
-
-await preloadComponents('NavigationBar', 'ClientOnly')
-defineOgImageComponent('TestOg', {
-    title: 'Tobias Torjusen',
-    description: 'Foto - design - utvikling',
-    logo: '/logo.png'
-
-})
-
+await preloadComponents(["NavigationBar", "ClientOnly"]);
+defineOgImage("TestOg", {
+    title: "Tobias Torjusen",
+    description: "Foto - design - utvikling",
+    logo: "/logo.png",
+});
 </script>
 
 <style>

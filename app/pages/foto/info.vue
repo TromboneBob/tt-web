@@ -1,8 +1,16 @@
 <template>
     <div>
         <div class="space-y-6">
-            <UButton to="/foto" label="Tilbake" icon="i-solar:arrow-left-linear" variant="link" color="neutral" />
-            <h1 class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100">
+            <UButton
+                to="/foto"
+                label="Tilbake"
+                icon="i-solar:arrow-left-linear"
+                variant="link"
+                color="neutral"
+            />
+            <h1
+                class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100"
+            >
                 Fotografering
             </h1>
 
@@ -12,9 +20,12 @@
                 produktfoto. Under finner du litt informasjon om priser og
                 tjenester.
             </p>
-            <UPageCard title="Klikk for å ta kontakt!"
+            <UPageCard
+                title="Klikk for å ta kontakt!"
                 description="Jeg tar gjerne en prat om du lurer på noe. Enten angående booking, eller om du bare har noen spørsmål."
-                icon="i-solar:chat-dots-outline" to="mailto:tobiastorjusen@icloud.com" />
+                icon="i-solar:chat-dots-outline"
+                to="mailto:tobiastorjusen@icloud.com"
+            />
         </div>
         <div class="space-y-6 mt-12">
             <UTabs :items="tabs" :ui="{ trigger: 'font-mono' }">
@@ -41,17 +52,25 @@
                         <h3 class="font-bold mt-6">
                             Hvordan ser prosessen ut?
                         </h3>
-                        <div v-for="(item, id) in stepperItems" :key="id" class="space-y-4 mb-10">
+                        <div
+                            v-for="(item, id) in stepperItems"
+                            :key="id"
+                            class="space-y-4 mb-10"
+                        >
                             <div class="w-full flex flex-col items-start gap-1">
-                                <div class="flex flex-row items-center gap-2 w-full">
+                                <div
+                                    class="flex flex-row items-center gap-2 w-full"
+                                >
                                     <UIcon :name="item.icon" class="size-5" />
                                     <h4 class="font-semibold">
                                         {{ item.title }}
                                     </h4>
-                                    <div class="grow border-t border-t-gray-300" />
+                                    <div
+                                        class="grow border-t border-t-gray-300"
+                                    />
                                     <UBadge variant="subtle">{{
                                         item.date
-                                        }}</UBadge>
+                                    }}</UBadge>
                                 </div>
                             </div>
                             <div class="text-pretty text-muted">
@@ -64,7 +83,8 @@
                         <p>
                             Begge pakkene inkluderer etterarbeid og et komplett
                             digitalt galleri, uten begrensninger på antall
-                            bilder. Dere står fritt til å laste ned og dele så mange bilder dere vil.
+                            bilder. Dere står fritt til å laste ned og dele så
+                            mange bilder dere vil.
                         </p>
                         <div>
                             <h3 class="font-bold">Prøvefotografering</h3>
@@ -76,7 +96,29 @@
                                 midtpunkt en hel dag, og da kan det være greit å
                                 ha fått senket skuldrene litt på forhånd.
                             </p>
-                            <UPricingPlans :plans="testPlan" class="gap-2 mt-8" />
+                            <UPricingPlans
+                                :plans="testPlan"
+                                class="gap-2 mt-8"
+                            />
+                        </div>
+                        <div class="mt-12">
+                            <h2 class="font-bold text-lg mb-4">
+                                Noen utvalgte brylluper
+                            </h2>
+                            <div class="grid grid-cols-3 gap-4">
+                                <NuxtLink
+                                    v-for="(
+                                        weddingSession, index
+                                    ) in weddingSessions"
+                                    :key="index"
+                                    :to="weddingSession.path"
+                                >
+                                    <NuxtImg
+                                        :src="weddingSession.thumbnail"
+                                        class="aspect-square object-cover rounded-sm"
+                                    />
+                                </NuxtLink>
+                            </div>
                         </div>
                     </div>
                 </template>
@@ -84,30 +126,43 @@
                     <div class="space-y-6 mt-6">
                         <h2 class="font-bold text-lg">Familie og portretter</h2>
                         <p>
-                            Jeg møter dere et sted der dere er komfortable og trygge, slik at barna føler de kan være
-                            seg selv og dere som foreldre kan slappe av og bare nyte. På den måten kan vi fange de
-                            ekte øyeblikkene som oppstår i samhandling mellom dere alle sammen.
+                            Jeg møter dere et sted der dere er komfortable og
+                            trygge, slik at barna føler de kan være seg selv og
+                            dere som foreldre kan slappe av og bare nyte. På den
+                            måten kan vi fange de ekte øyeblikkene som oppstår i
+                            samhandling mellom dere alle sammen.
                         </p>
                         <p>
-                            Det er viktig for meg at det hele skal oppleves naturlig og avslappet. Minst mulig stivt og
+                            Det er viktig for meg at det hele skal oppleves
+                            naturlig og avslappet. Minst mulig stivt og
                             oppstilt. Mest mulig lek, glede og latter.
                         </p>
                         <h3 class="font-bold">Hva koster det egentlig?</h3>
                         <UPricingPlans :plans="portraitPlans" class="gap-2" />
                         <div class="my-12">
-                            <h3 class="font-bold mb-4">Du lurer kanskje på...</h3>
-                            <UAccordion :items="portraitFAQ" :ui="{ label: 'font-medium' }" />
+                            <h3 class="font-bold mb-4">
+                                Du lurer kanskje på...
+                            </h3>
+                            <UAccordion
+                                :items="portraitFAQ"
+                                :ui="{ label: 'font-medium' }"
+                            />
                         </div>
                         <div class="grid grid-cols-3 gap-4">
-                            <NuxtLink v-for="(portraitSession, index) in portraitFotos" :key="index"
-                                :to="portraitSession.path">
-
-                                <NuxtImg :src="portraitSession.thumbnail"
-                                    class="aspect-square object-cover rounded-sm" />
+                            <NuxtLink
+                                v-for="(
+                                    portraitSession, index
+                                ) in portraitFotos"
+                                :key="index"
+                                :to="portraitSession.path"
+                            >
+                                <NuxtImg
+                                    :src="portraitSession.thumbnail"
+                                    class="aspect-square object-cover rounded-sm"
+                                />
                             </NuxtLink>
                         </div>
                     </div>
-
                 </template>
             </UTabs>
         </div>
@@ -116,10 +171,11 @@
 
 <script setup>
 definePageMeta({
-    layout: 'standard',
+    layout: "standard",
 });
 
-const description = "Informasjon om fotografering med Tobias Torjusen i Rosendal og Kvinnherad. Priser og opplegg for bryllup, familie, portrett og bedriftsfoto.";
+const description =
+    "Informasjon om fotografering med Tobias Torjusen i Rosendal og Kvinnherad. Priser og opplegg for bryllup, familie, portrett og bedriftsfoto.";
 
 useSeoMeta({
     title: "Info %separator Foto",
@@ -130,19 +186,23 @@ useSeoMeta({
     twitterCard: "summary_large_image",
 });
 
-const { fotos } = useFotoCollection()
+const { fotos } = useFotoCollection();
 
-const weddingFotos = computed(() => {
-    return fotos.value.filter((foto) => foto.occasion == "Bryllup")
-})
+const weddingSessions = computed(() => {
+    return fotos.value.filter((foto) => foto.occasion == "Bryllup");
+});
 
 const portraitFotos = computed(() => {
-    return fotos.value?.filter((foto) =>
-        ["Julekort", "Familie", "Nyfødt", "Konfirmasjon"].includes(foto.occasion)
-    ) ?? []
-})
+    return (
+        fotos.value?.filter((foto) =>
+            ["Julekort", "Familie", "Nyfødt", "Konfirmasjon"].includes(
+                foto.occasion,
+            ),
+        ) ?? []
+    );
+});
 
-const contactLinks = ref([
+const _contactLinks = ref([
     [
         {
             label: "Mobil",
@@ -217,10 +277,7 @@ const testPlan = ref([
         description:
             "Tillegg til begge bryllupspakker. Passer perfekt for dere som ønsker flotte bilder uten presset rundt bryllupsdagen. En god anledning for oss til å bli kjent, og for dere til å senke skuldrene litt.",
         price: "kr 4000,-",
-        features: [
-            "Portretter på ønsket lokasjon",
-            "Varighet ca. 1 time",
-        ],
+        features: ["Portretter på ønsket lokasjon", "Varighet ca. 1 time"],
 
         ui: {
             root: "p-4 xl:p-8 lg:p-6 gap-4",
@@ -228,7 +285,6 @@ const testPlan = ref([
             price: "text-xl sm:text-xl",
         },
     },
-
 ]);
 
 const portraitPlans = ref([
@@ -249,36 +305,37 @@ const portraitPlans = ref([
             price: "text-xl sm:text-xl",
         },
     },
-
 ]);
 
 const portraitFAQ = ref([
-
     {
-        label: 'Hva bør vi ha på oss?',
-        icon: 'i-solar:t-shirt-outline',
-        content: 'Tenk naturlige og myke farger. Unngå store logoer, skarpe farger eller masete mønster. Det er ofte lurt å velge klær som går godt sammen, men prøv også å unngå at alle stiller i "uniform". Om dere er usikre på om det dere har valgt ut fungerer kan dere sende meg et bilde, så hjelper jeg gjerne med forslag og idéer.'
+        label: "Hva bør vi ha på oss?",
+        icon: "i-solar:t-shirt-outline",
+        content:
+            'Tenk naturlige og myke farger. Unngå store logoer, skarpe farger eller masete mønster. Det er ofte lurt å velge klær som går godt sammen, men prøv også å unngå at alle stiller i "uniform". Om dere er usikre på om det dere har valgt ut fungerer kan dere sende meg et bilde, så hjelper jeg gjerne med forslag og idéer.',
     },
     {
-        label: 'Når får jeg bildene?',
-        icon: 'solar:clock-circle-outline',
-        content: 'Det tar vanligvis 3-4 uker å ferdigstille bildene. Har du hastverk med å få dem kan du gi beskjed ved booking, så kan vi prøve å finne en løsning.'
-    }
-])
+        label: "Når får jeg bildene?",
+        icon: "solar:clock-circle-outline",
+        content:
+            "Det tar vanligvis 3-4 uker å ferdigstille bildene. Har du hastverk med å få dem kan du gi beskjed ved booking, så kan vi prøve å finne en løsning.",
+    },
+]);
 
 const weddingFAQ = ref([
-
     {
-        label: 'Hva bør vi ha på oss?',
-        icon: 'i-solar:t-shirt-outline',
-        content: 'Tenk naturlige og myke farger. Unngå store logoer, skarpe farger eller masete mønster. Det er ofte lurt å velge klær som går godt sammen, men prøv også å unngå at alle stiller i "uniform". Om dere er usikre på om det dere har valgt ut fungerer kan dere sende meg et bilde, så hjelper jeg gjerne med forslag og idéer.'
+        label: "Hva bør vi ha på oss?",
+        icon: "i-solar:t-shirt-outline",
+        content:
+            'Tenk naturlige og myke farger. Unngå store logoer, skarpe farger eller masete mønster. Det er ofte lurt å velge klær som går godt sammen, men prøv også å unngå at alle stiller i "uniform". Om dere er usikre på om det dere har valgt ut fungerer kan dere sende meg et bilde, så hjelper jeg gjerne med forslag og idéer.',
     },
     {
-        label: 'Når får jeg bildene?',
-        icon: 'solar:clock-circle-outline',
-        content: 'Det tar vanligvis 3-4 uker å ferdigstille bildene. Har du hastverk med å få dem kan du gi beskjed ved booking, så kan vi prøve å finne en løsning.'
-    }
-])
+        label: "Hvordan vet v",
+        icon: "solar:clock-circle-outline",
+        content:
+            "Det tar vanligvis 3-4 uker å ferdigstille bildene. Har du hastverk med å få dem kan du gi beskjed ved booking, så kan vi prøve å finne en løsning.",
+    },
+]);
 
 const stepperItems = ref([
     {

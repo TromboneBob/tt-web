@@ -6,12 +6,14 @@
         <div class="grid grid-cols-1 gap-4 mb-4 font-mono">
             <div class="flex flex-row gap-2 items-center">
                 <h3 class="text-muted">Anledning: </h3>
-                <USelect placeholder="Velg anledning..." v-model="occasion" :items="occasions" variant="ghost" multiple
+                <USelect
+v-model="occasion" placeholder="Velg anledning..." :items="occasions" variant="ghost" multiple
                     class="w-48" />
             </div>
             <div class="flex flex-row gap-2 items-center">
                 <h3 class="text-muted">Årstid: </h3>
-                <USelect placeholder="Velg årstid..." v-model="timeOfYear" :items="seasons" variant="ghost" multiple
+                <USelect
+v-model="timeOfYear" placeholder="Velg årstid..." :items="seasons" variant="ghost" multiple
                     class="w-48" />
             </div>
         </div>

@@ -8,7 +8,8 @@
             <p class="text-gray-400 text-sm">{{ project.deliverable }}</p>
         </div>
         <div class="flex-1 border-b border-dashed border-gray-300 dark:border-gray-800 group-hover:border-primary" />
-        <UAvatar :src="project.thumbnail" :ui="{ root: 'rounded-sm z-10 relative' }" size="md"
+        <UAvatar
+:src="project.thumbnail" :ui="{ root: 'rounded-sm z-10 relative' }" size="md"
             :alt="project.name" />
     </NuxtLink>
 </template>

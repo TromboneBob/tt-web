@@ -3,7 +3,8 @@
         <template #left>
             <div class="sticky top-0 bg-red-100">
                 <div class="flex flex-row gap-2">
-                    <UAvatar :src="project?.thumbnail" :ui="{ root: 'rounded-sm z-10 relative' }" size="sm"
+                    <UAvatar
+:src="project?.thumbnail" :ui="{ root: 'rounded-sm z-10 relative' }" size="sm"
                         :alt="project?.name" />
                     <h1 class="font-medium text-lg">{{ project?.name }}</h1>
                 </div>
@@ -18,9 +19,11 @@
             <div class="sticky top-0 bg-blue-100">
                 <div class="grid grid-cols-1 gap-2 p-4 ">
 
-                    <ULink v-for="item in data[0].children" :key="item.id" class="flex flex-row gap-2" :to="item.path"
-                        activeClass="font-medium text-black">
-                        <UAvatar :src="item.thumbnail" :ui="{ root: 'rounded-sm z-10 relative' }" size="2xs"
+                    <ULink
+v-for="item in data[0].children" :key="item.id" class="flex flex-row gap-2" :to="item.path"
+                        active-class="font-medium text-black">
+                        <UAvatar
+:src="item.thumbnail" :ui="{ root: 'rounded-sm z-10 relative' }" size="2xs"
                             :alt="item.title" class="transition-opacity"
                             :class="route.path === item.path ? 'opacity-100 ' : 'opacity-0'" />
                         <h2 class="transition-transform" :class="route.path === item.path ? '' : '-translate-x-7'">{{

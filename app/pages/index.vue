@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="space-y-6">
-            <NuxtImg src="/TLT_1813.jpg" alt="Tobias Torjusen"
+            <NuxtImg
+src="/TLT_1813.jpg" alt="Tobias Torjusen"
                 class="rounded-md aspect-square size-40 object-cover mb-12" />
             <div>
 
@@ -36,7 +37,8 @@
                 Interessert i foto?
             </h2> -->
             <FotoThumbnailGrid />
-            <UButton label="Se bilder &rarr;" variant="link" color="neutral" to="/foto"
+            <UButton
+label="Se bilder &rarr;" variant="link" color="neutral" to="/foto"
                 class="hover:text-primary transition-colors" />
             <!-- <p class="text-gray-900 dark:text-gray-400">
                 Jeg liker å ta bilder. Både for meg selv og for andre. Det er
