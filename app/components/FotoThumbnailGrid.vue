@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-wrap">
-        <div v-for="(image, id) of fotos" :key="id" class="w-1/5 saturate-0 hover:saturate-100 transition-all">
+        <div v-for="(image, id) of fotos" :key="id" class="w-1/4 saturate-0 hover:saturate-100 transition-all">
             <ULink to="/foto">
                 <NuxtImg
-:src="image.thumbnail" class="aspect-square object-cover" quality="50" width="128"
-                    height="128" />
+:src="image.thumbnail" class="aspect-square object-cover" quality="50" width="160"
+                    height="160" />
             </ULink>
         </div>
     </div>

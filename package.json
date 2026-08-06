@@ -40,9 +40,17 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.114",
+    "@iconify-json/pixel": "^1.2.2",
     "@iconify-json/solar": "^1.2.5",
     "@types/image-size": "^0.8.0",
     "@vueuse/core": "^14.2.1",
     "@vueuse/nuxt": "^14.2.1"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.20.0",
+      "onFail": "download"
+    }
   }
 }

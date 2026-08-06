@@ -8,6 +8,17 @@
                 tobiastorjusen@icloud.com
                 <UIcon name="i-pixelarticons:copy" />
             </div>
+            <div class="mt-3">
+                <a
+                    href="https://www.instagram.com/tobiastorjusen/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    class="inline-flex hover:text-primary-400 transition-colors"
+                >
+                    <UIcon name="i-pixel:instagram" class="size-6" />
+                </a>
+            </div>
             <Teleport to="body">
                 <Transition name="tooltip">
                     <div
