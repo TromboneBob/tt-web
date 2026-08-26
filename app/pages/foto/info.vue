@@ -8,13 +8,11 @@
                 variant="link"
                 color="neutral"
             />
-            <h1
-                class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100"
-            >
+            <h1 class="text-xl font-medium tracking-tight text-highlighted">
                 Fotografering
             </h1>
 
-            <p class="text-gray-900 dark:text-gray-400">
+            <p class="">
                 Jeg er åpen for de aller fleste typer fotooppdrag, fra
                 familiefoto og bryllupsfoto, til alle former for bedrifts- og
                 produktfoto. Under finner du litt informasjon om priser og
@@ -31,7 +29,9 @@
             <UTabs :items="tabs" :ui="{ trigger: 'font-mono' }">
                 <template #wedding>
                     <div class="space-y-6 mt-6">
-                        <h2 class="font-bold text-lg">Bryllup</h2>
+                        <h2 class="font-medium text-lg text-highlighted">
+                            Bryllup
+                        </h2>
                         <p>
                             Å ta bilder i et bryllup handler om mye mer enn å
                             bare ta pene bilder av brudeparet. Det handler om å
@@ -124,7 +124,9 @@
                 </template>
                 <template #family>
                     <div class="space-y-6 mt-6">
-                        <h2 class="font-bold text-lg">Familie og portretter</h2>
+                        <h2 class="font-medium text-lg text-highlighted">
+                            Familie og portretter
+                        </h2>
                         <p>
                             Jeg møter dere et sted der dere er komfortable og
                             trygge, slik at barna føler de kan være seg selv og

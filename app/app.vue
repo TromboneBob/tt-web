@@ -1,8 +1,7 @@
 <template>
     <UApp>
-        <ClientOnly>
-            <NavigationBar />
-        </ClientOnly>
+        <NavigationBar />
+
         <UMain>
             <NuxtLayout>
                 <NuxtPage />
@@ -14,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-await preloadComponents(["NavigationBar", "ClientOnly"]);
+await preloadComponents(["NavigationBar"]);
 defineOgImage("TestOg", {
     title: "Tobias Torjusen",
     description: "Foto - design - utvikling",

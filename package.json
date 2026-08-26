@@ -3,9 +3,11 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "predev": "node scripts/generate-thumbnails.ts",
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "prebuild": "node scripts/analyze-images.ts",
+    "prebuild": "node scripts/analyze-images.ts && node scripts/generate-thumbnails.ts",
+    "pregenerate": "node scripts/analyze-images.ts && node scripts/generate-thumbnails.ts",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -40,6 +42,7 @@
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.114",
+    "@iconify-json/ph": "^1.2.2",
     "@iconify-json/pixel": "^1.2.2",
     "@iconify-json/solar": "^1.2.5",
     "@types/image-size": "^0.8.0",

@@ -23,11 +23,20 @@ export default defineContentConfig({
       source: "foto-sessions/*.md",
       schema: z.object({
         name: z.string().min(2).max(100),
-        description: z.string().min(10).max(500),
+        description: z.string().min(10).max(500).nullable().optional(),
         thumbnail: z.string().min(10).max(100),
         location: z.string(),
-        images: z.array(z.string().url()).min(1).max(10),
-        timeOfYear: z.string(),
+        images: z
+          .array(
+            z.object({
+              filename: z.string(),
+              span: z.number().int().min(1).max(2),
+              width: z.number().int().positive(),
+              height: z.number().int().positive(),
+            }),
+          )
+          .min(1),
+        timeOfYear: z.string().optional(),
         occasion: z.string(),
       }),
     }),

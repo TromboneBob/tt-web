@@ -104,6 +104,17 @@ export default defineNuxtConfig({
       },
     ],
   },
+  icon: {
+    clientBundle: {
+      scan: false,
+      icons: [
+        "solar:home-smile-outline",
+        "solar:camera-outline",
+        "solar:ruler-cross-pen-outline",
+        "ph:dog",
+      ],
+    },
+  },
   ogImage: {},
   site: {
     url: "https://tobiastorjusen.no",

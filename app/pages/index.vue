@@ -2,21 +2,25 @@
     <div>
         <div class="space-y-6">
             <NuxtImg
-src="/TLT_1813.jpg" alt="Tobias Torjusen"
-                class="rounded-md aspect-square size-40 object-cover mb-12" />
+                src="/TLT_1813.jpg"
+                alt="Tobias Torjusen"
+                height="160px"
+                width="160px"
+                class="rounded-md aspect-square size-40 object-cover mb-12"
+            />
             <div>
-
-                <h1 class="text-xl font-medium text-gray-800 dark:text-gray-100">
-                    <span class="tracking-tight">Fotograf</span> - <span
-                        class="font-mono text-primary-700">Webutvikler</span> - <span class="font-serif italic">kreativ
-                        sjel</span>
+                <h1
+                    class="text-xl font-medium text-gray-800 dark:text-gray-100"
+                >
+                    <span class="tracking-tight">Fotograf</span> -
+                    <span class="font-mono text-primary-700">Webutvikler</span>
+                    - <span class="font-serif italic">kreativ sjel</span>
                 </h1>
-
             </div>
-            <p class="text-gray-900 dark:text-gray-400">
-                Hei! Jeg heter Tobias og jeg elsker å være kreativ. Jeg jobber med
-                foto, video, webutvikling og design, og jeg brenner for å skape
-                løsninger som både fungerer og ser bra ut. Uansett medium
+            <p class="">
+                Hei! Jeg heter Tobias og jeg elsker å være kreativ. Jeg jobber
+                med foto, video, webutvikling og design, og jeg brenner for å
+                skape løsninger som både fungerer og ser bra ut. Uansett medium
                 handler det om å fortelle gode historier og levere arbeid som
                 gjør en reell forskjell. Her finner du noen av mine prosjekter
                 og tanker rundt kreativt arbeid.
@@ -38,8 +42,12 @@ src="/TLT_1813.jpg" alt="Tobias Torjusen"
             </h2> -->
             <FotoThumbnailGrid />
             <UButton
-label="Se bilder &rarr;" variant="link" color="neutral" to="/foto"
-                class="hover:text-primary transition-colors" />
+                label="Se bilder &rarr;"
+                variant="link"
+                color="neutral"
+                to="/foto"
+                class="hover:text-primary transition-colors"
+            />
             <!-- <p class="text-gray-900 dark:text-gray-400">
                 Jeg liker å ta bilder. Både for meg selv og for andre. Det er
                 noe nesten magisk ved å fange øyeblikk. Fryse dem i tiden, og
@@ -52,13 +60,13 @@ label="Se bilder &rarr;" variant="link" color="neutral" to="/foto"
     </div>
 </template>
 
-
 <script setup>
 definePageMeta({
-    layout: 'standard',
+    layout: "standard",
 });
 
-const description = "Tobias Torjusen er fotograf, webutvikler og kreativ historieforteller i Rosendal. Se fotoarbeid, webprosjekter og kreative prosjekter.";
+const description =
+    "Tobias Torjusen er fotograf, webutvikler og kreativ historieforteller i Rosendal. Se fotoarbeid, webprosjekter og kreative prosjekter.";
 
 useSeoMeta({
     title: "Fotograf, webutvikler og kreativ sjel",

@@ -18,8 +18,15 @@
     --font-mono: "Departure mono", monospace;
     --font-sans: "Inter", sans-serif;
     --font-serif: "Libre Baskerville", serif;
+    --color-gray-1100: #63635e;
+    --color-gray-1200: #21201c;
 }
 
+@layer base {
+    p {
+        @apply leading-relaxed text-toned;
+    }
+}
 .markdown {
     h1 {
         font-size: var(--text-xl);

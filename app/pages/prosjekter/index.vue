@@ -1,13 +1,11 @@
 <template>
     <div>
         <div class="space-y-6">
-            <h1
-                class="text-xl font-mono tracking-tight text-gray-800 dark:text-gray-100"
-            >
+            <h1 class="text-xl font-mono tracking-tight text-highlighted">
                 Prosjekter
             </h1>
 
-            <p class="text-gray-900 dark:text-gray-400">
+            <p class="">
                 Jeg elsker å finne kreative løsninger som både formidler på en
                 god måte, og som ser fine ut. Under er et utvalg prosjekter jeg
                 har jobbet med den siste tiden.
@@ -18,6 +16,7 @@
                 icon="i-solar:code-outline"
                 to="mailto:tobiastorjusen@icloud.com"
                 variant="subtle"
+                class="active:scale-99 my-12"
             />
         </div>
         <div class="mt-8">

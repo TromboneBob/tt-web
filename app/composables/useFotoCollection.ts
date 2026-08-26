@@ -1,7 +1,11 @@
 export const useFotoCollection = () => {
   const { data: fotos, pending, error, refresh } = useAsyncData(
-    "fotoSessions",
-    () => queryCollection("fotoSessions").all(),
+    "foto-session-summaries",
+    () =>
+      queryCollection("fotoSessions")
+        .select("name", "path", "thumbnail", "occasion")
+        .all(),
+    { default: () => [] },
   );
 
   return { fotos, pending, error, refresh };

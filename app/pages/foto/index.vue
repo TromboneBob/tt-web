@@ -1,13 +1,11 @@
 <template>
     <div>
-        <div class="space-y-6">
-            <h1
-                class="text-xl font-medium tracking-tight text-gray-800 dark:text-gray-100"
-            >
+        <div class="space-y-5">
+            <h1 class="text-xl font-medium tracking-tight text-highlighted">
                 Foto
             </h1>
 
-            <p class="text-gray-900 dark:text-gray-400">
+            <p class="">
                 Fotografering handler om å fange følelser og historier i ett
                 enkelt øyeblikk. Et bilde kan romme mye, men setter man flere
                 sammen oppstår det magi. Et helt hav av følelser og opplevelser
@@ -21,6 +19,7 @@
                 icon="i-solar:camera-outline"
                 to="/foto/info"
                 variant="subtle"
+                class="active:scale-99 mt-12"
             />
             <!-- <p class="text-gray-900 dark:text-gray-400">
                 Jeg har også de siste årene vært så heldig å få ta bilder til
