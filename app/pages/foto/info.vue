@@ -160,7 +160,8 @@
                                 :title="portraitSession.name"
                             >
                                 <NuxtImg
-                                    :src="portraitSession.thumbnail"
+                                    :src="portraitSession.thumbnailSrc"
+                                    :srcset="portraitSession.thumbnailSrcset"
                                     class="aspect-square object-cover rounded-sm"
                                 />
                             </NuxtLink>
@@ -195,15 +196,26 @@ const weddingSessions = computed(() => {
     return fotos.value.filter((foto) => foto.occasion == "Bryllup");
 });
 
-const portraitFotos = computed(() => {
-    return (
-        fotos.value?.filter((foto) =>
+const portraitFotos = computed(() =>
+    (fotos.value ?? [])
+        .filter((foto) =>
             ["Julekort", "Familie", "Nyfødt", "Konfirmasjon"].includes(
                 foto.occasion,
             ),
-        ) ?? []
-    );
-});
+        )
+        .map((image) => {
+            const filename =
+                image.thumbnail.split("/").at(-1) ?? image.thumbnail;
+            const stem = filename.replace(/\.[^.]+$/, "");
+            const base = `/generated/foto-thumbnails/${encodeURIComponent(stem)}`;
+
+            return {
+                ...image,
+                thumbnailSrc: `${base}-160.webp`,
+                thumbnailSrcset: `${base}-160.webp 160w, ${base}-320.webp 320w`,
+            };
+        }),
+);
 
 const _contactLinks = ref([
     [
