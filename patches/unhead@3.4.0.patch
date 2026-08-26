@@ -1,0 +1,12 @@
+diff --git a/dist/plugins.mjs b/dist/plugins.mjs
+--- a/dist/plugins.mjs
++++ b/dist/plugins.mjs
+@@ -508,7 +508,7 @@ function ValidatePlugin(options = {}) {
+             }
+             if (tag.tag === "meta" && typeof metaKey === "string") {
+               const normalizedMetaKey = metaKey.toLowerCase();
+-              if (normalizedMetaKey.startsWith("twitter:") && !SLACK_TWITTER_META_NAMES.has(normalizedMetaKey))
++              if (normalizedMetaKey.startsWith("twitter:") && normalizedMetaKey !== "twitter:card" && !SLACK_TWITTER_META_NAMES.has(normalizedMetaKey))
+                 report("deprecated-twitter-meta", `${normalizedMetaKey} is deprecated. Use Open Graph metadata instead.`, "warn", tag);
+             }
+             if (tag.tag === "meta" && metaKey && URL_META_KEYS.has(metaKey)) {

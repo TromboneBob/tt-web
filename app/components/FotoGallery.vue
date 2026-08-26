@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-1 gap-4">
-        <div v-for="photo in props.photos" :key="photo.src">
+        <div v-for="(photo, index) in props.photos" :key="photo.src">
             <div class="flex flex-col items-center w-full">
                 <NuxtImg
                     :src="photo.src"
@@ -12,7 +12,7 @@
                     sizes="(max-width: 768px) 100vw, 620px"
                     alt="Thumbnail"
                     class="rounded-lg object-cover w-full"
-                    preload
+                    :preload="index < 2"
                 />
             </div>
         </div>
