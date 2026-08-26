@@ -14,7 +14,11 @@
                 >
                     <span class="tracking-tight">Fotograf</span> -
                     <span class="font-mono text-primary-700">Webutvikler</span>
-                    - <span class="font-serif italic">kreativ sjel</span>
+                    -
+                    <span
+                        class="font-serif italic bg-linear-to-tr from-neutral-300 to-neutral-800 bg-clip-text text-transparent"
+                        >kreativ sjel</span
+                    >
                 </h1>
             </div>
             <p class="">
