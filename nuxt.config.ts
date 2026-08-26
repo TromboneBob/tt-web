@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     },
   },
   image: {
+    provider: "ipxStatic",
     format: ["webp", "jpg", "avif"],
     quality: 80,
     presets: {
