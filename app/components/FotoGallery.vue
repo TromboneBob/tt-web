@@ -12,6 +12,7 @@
                     sizes="(max-width: 768px) 100vw, 620px"
                     alt="Thumbnail"
                     class="rounded-lg object-cover w-full"
+                    preload
                 />
             </div>
         </div>

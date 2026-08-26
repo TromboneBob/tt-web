@@ -30,7 +30,7 @@
     "eslint": "^9.39.1",
     "fs": "0.0.1-security",
     "image-size": "^2.0.2",
-    "nuxt": "^4.2.1",
+    "nuxt": "^4.5.2",
     "path": "^0.12.7",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.1.17",

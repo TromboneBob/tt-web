@@ -157,6 +157,7 @@
                                 ) in portraitFotos"
                                 :key="index"
                                 :to="portraitSession.path"
+                                :title="portraitSession.name"
                             >
                                 <NuxtImg
                                     :src="portraitSession.thumbnail"

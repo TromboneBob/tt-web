@@ -1,11 +1,5 @@
 <template>
-    <NuxtLink
-        :to="session.path"
-        class="mb-0"
-        prefetch-on="interaction"
-        @mouseenter="prefetchGalleryImages(session.path, session.images)"
-        @focus="prefetchGalleryImages(session.path, session.images)"
-    >
+    <NuxtLink :to="session.path" class="mb-0" prefetch-on="interaction">
         <div class="flex flex-col items-center w-full">
             <NuxtImg
                 :src="session.thumbnail"
@@ -49,17 +43,12 @@ import type { FotoSessionsCollectionItem } from "@nuxt/content";
 
 type SessionCard = Pick<
     FotoSessionsCollectionItem,
-    | "path"
-    | "thumbnail"
-    | "name"
-    | "location"
-    | "occasion"
-    | "timeOfYear"
+    "path" | "thumbnail" | "name" | "location" | "occasion" | "timeOfYear"
 > & {
     images: readonly { filename: string }[];
 };
 
-const { prefetchGalleryImages } = usePrefetchGallery();
+// const { prefetchGalleryImages } = usePrefetchGallery();
 
 const props = defineProps<{
     session: SessionCard;
@@ -67,14 +56,14 @@ const props = defineProps<{
 
 const timeOfYearColor = computed(() => {
     switch (props.session.timeOfYear) {
-        case 'Vinter':
-            return 'winter';
-        case 'Vår':
-            return 'spring';
-        case 'Sommer':
-            return 'summer';
-        case 'Høst':
-            return 'autumn';
+        case "Vinter":
+            return "winter";
+        case "Vår":
+            return "spring";
+        case "Sommer":
+            return "summer";
+        case "Høst":
+            return "autumn";
         default:
             return "neutral";
     }

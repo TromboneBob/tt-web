@@ -2,12 +2,16 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
+  experimental: { prefetchPreloadTags: true },
   devtools: { enabled: true },
   vite: {
     plugins: [tailwindcss()],
   },
   routeRules: {
     "/foto-sessions/**": { prerender: true },
+  },
+  sitemap: {
+    zeroRuntime: true,
   },
   nitro: {
     prerender: {
@@ -75,7 +79,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ["./app/assets/main.css"],
+  css: ["~/assets/main.css"],
   fonts: {
     provider: "bunny",
     families: [
