@@ -250,7 +250,7 @@ const weddingPlans = ref([
         title: "Halvdag",
         description:
             "Perfekt for dere som ønsker fotografering av vielse, portretter og noen fine øyeblikk rundt. Varighet ca. 4 timer. Fleksibelt opplegg før eller etter vielsen.",
-        price: "fra kr 15 000,-",
+        price: "fra kr 20 000,-",
         features: [
             "Portretter på ønsket lokasjon",
             "Vielse",
@@ -269,7 +269,7 @@ const weddingPlans = ref([
         title: "Heldag",
         description:
             "For dere som ønsker at hele historien skal med: forberedelser, vielse, portretter, middag, dans og fest. Inntil 12 timer",
-        price: "fra kr 24 000,-",
+        price: "fra kr 30 000,-",
         features: [
             "Alt i halvdag",
             "Forberedelser",
