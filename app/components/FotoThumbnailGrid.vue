@@ -3,7 +3,8 @@
         <div
             v-for="image of thumbnails"
             :key="image.path"
-            class="w-1/4 saturate-0 hover:saturate-100 transition-all"
+            class="intro-tile w-1/4 saturate-0 hover:saturate-100 transition-all"
+            :style="{ '--d': image.delay }"
         >
             <ULink
                 to="/foto"
@@ -28,6 +29,18 @@
 <script setup lang="ts">
 const { fotos } = useFotoCollection();
 
+// Deterministic pseudo-random 0–1 per image path (FNV-1a). Must be stable
+// between server and client so the inline style hydrates without a mismatch;
+// Math.random() would differ per render.
+const seededUnit = (key: string) => {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < key.length; i++) {
+        h ^= key.charCodeAt(i);
+        h = Math.imul(h, 0x01000193);
+    }
+    return ((h >>> 0) % 1000) / 1000;
+};
+
 const thumbnails = computed(() =>
     fotos.value.map((image) => {
         const filename = image.thumbnail.split("/").at(-1) ?? image.thumbnail;
@@ -38,6 +51,7 @@ const thumbnails = computed(() =>
             ...image,
             src: `${base}-160.webp`,
             srcset: `${base}-160.webp 160w, ${base}-320.webp 320w`,
+            delay: seededUnit(image.path).toFixed(3),
         };
     }),
 );
