@@ -2,7 +2,7 @@
     <UApp>
         <NavigationBar />
 
-        <UMain>
+        <UMain class="bg-primary-700">
             <NuxtLayout>
                 <NuxtPage />
             </NuxtLayout>

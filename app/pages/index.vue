@@ -123,9 +123,7 @@ useSeoMeta({
    (--d is set inline by FotoThumbnailGrid, 0–1). */
 [data-intro] .intro-tile {
     animation: intro-fade 220ms ease-out both;
-    animation-delay: calc(
-        var(--intro-gallery-start) + var(--d, 0) * 320ms
-    );
+    animation-delay: calc(var(--intro-gallery-start) + var(--d, 0) * 450ms);
 }
 
 @keyframes intro-rise {
