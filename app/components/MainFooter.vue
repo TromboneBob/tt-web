@@ -1,5 +1,5 @@
 <template>
-    <footer class="py-16 text-center font-mono bg-primary-700 text-white">
+    <footer class="mt-32 py-16 text-center font-mono bg-primary-700 text-white">
         <UContainer>
             <div class="text-2xl">La oss skape noe sammen!</div>
             <div
@@ -37,7 +37,9 @@
             <div
                 class="flex justify-center items-center mt-4 pt-4 opacity-60 border-t-white border-t"
             >
-                <p class="text-sm text-neutral-500">© 2025 Tobias Torjusen</p>
+                <p class="text-sm text-inverted">
+                    © {{ currentYear }} Tobias Torjusen
+                </p>
             </div>
         </UContainer>
     </footer>
@@ -47,6 +49,8 @@
 const showTooltip = ref(false);
 const tooltipX = ref(0);
 const tooltipY = ref(0);
+
+const currentYear = new Date().getFullYear();
 
 function copyEmail(event: MouseEvent) {
     navigator.clipboard.writeText("tobiastorjusen@icloud.com");
